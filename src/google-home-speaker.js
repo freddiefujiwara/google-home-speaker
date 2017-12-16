@@ -70,13 +70,17 @@ export default class GoogleHomeSpeaker {
                         status.playerState);
                 });
 
-                console.log('displayName:%s',player.session.displayName);
-                console.log('url:%s',media.contentId);
+                console.log('displayName:%s', player.session.displayName);
+                console.log('url:%s', media.contentId);
                 player.load(media, {autoplay: true}, (err, status) => {
-                    console.log('status:%s',
-                        status.playerState);
+                    if (err === null) {
+                        console.log('status:%s',
+                            status.playerState);
+                        console.log('spoke');
+                    } else {
+                        console.error(err);
+                    }
                     client.close();
-                    console.log('spoke');
                 });
             });
         });
