@@ -1,6 +1,6 @@
 {
     "name": "google-home-speaker",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Command line client for chromeless",
     "scripts": {
         "clean": "rimraf lib",
