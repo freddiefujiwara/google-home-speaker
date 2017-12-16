@@ -1,11 +1,11 @@
-[![Build Status](https://travis-ci.org/freddiefujiwara/chromeless-cli.svg?branch=master)](https://travis-ci.org/freddiefujiwara/chromeless-cli)
-[![Build status](https://ci.appveyor.com/api/projects/status/f6wch68buqp93hc7/branch/master?svg=true)](https://ci.appveyor.com/project/freddiefujiwara/chromeless-cli/branch/master)
-[![CircleCI](https://circleci.com/gh/freddiefujiwara/chromeless-cli.svg?style=svg)](https://circleci.com/gh/freddiefujiwara/chromeless-cli)
-[![npm version](https://badge.fury.io/js/chromeless-cli.svg)](https://badge.fury.io/js/chromeless-cli)
-[![codecov](https://codecov.io/gh/freddiefujiwara/chromeless-cli/branch/master/graph/badge.svg)](https://codecov.io/gh/freddiefujiwara/chromeless-cli)
-[![dependencies Status](https://david-dm.org/freddiefujiwara/chromeless-cli/status.svg)](https://david-dm.org/freddiefujiwara/chromeless-cli)
+[![Build Status](https://travis-ci.org/freddiefujiwara/google-home-speaker.svg?branch=master)](https://travis-ci.org/freddiefujiwara/google-home-speaker)
+[![Build status](https://ci.appveyor.com/api/projects/status/f6wch68buqp93hc7/branch/master?svg=true)](https://ci.appveyor.com/project/freddiefujiwara/google-home-speaker/branch/master)
+[![CircleCI](https://circleci.com/gh/freddiefujiwara/google-home-speaker.svg?style=svg)](https://circleci.com/gh/freddiefujiwara/google-home-speaker)
+[![npm version](https://badge.fury.io/js/google-home-speaker.svg)](https://badge.fury.io/js/google-home-speaker)
+[![codecov](https://codecov.io/gh/freddiefujiwara/google-home-speaker/branch/master/graph/badge.svg)](https://codecov.io/gh/freddiefujiwara/google-home-speaker)
+[![dependencies Status](https://david-dm.org/freddiefujiwara/google-home-speaker/status.svg)](https://david-dm.org/freddiefujiwara/google-home-speaker)
 
-# chromeless-cli
+# google-home-speaker
 Command line client for chromeless
 
 ## Requirements
@@ -15,12 +15,12 @@ Command line client for chromeless
 ## Installation
 
 ```bash
-npm i -g chromeless-cli
+npm i -g google-home-speaker
 ```
 
 ## Usage
 ```bash                                                                                     
-  Usage: chromeless-cli [options] [source.cmd]                                                                                    
+  Usage: google-home-speaker [options] [source.cmd]                                                                                    
                                                                                                                                
   Command line client for chromeless                                                                                             
                                                                                                                                
@@ -34,7 +34,7 @@ npm i -g chromeless-cli
 ## Example
 ```bash
 goto http://www.google.com
-type chromeless-cli 'input[name="q"]'
+type google-home-speaker 'input[name="q"]'
 click 'input[type="submit"]'
 wait #resultStats
 screenshot
@@ -42,8 +42,8 @@ screenshot
 
 ## FAQ
 
-[FAQ](https://github.com/freddiefujiwara/chromeless-cli/wiki/FAQ)
+[FAQ](https://github.com/freddiefujiwara/google-home-speaker/wiki/FAQ)
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/freddiefujiwara/chromeless-cli
+Bug reports and pull requests are welcome on GitHub at https://github.com/freddiefujiwara/google-home-speaker
