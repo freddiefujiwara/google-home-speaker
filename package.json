@@ -29,7 +29,9 @@
     },
     "keywords": [
         "cli",
-        "chromeless"
+        "tts",
+        "speaker",
+        "google-home"
     ],
     "author": "Fumikazu Fujiwara <npm@ze.gs> (http://freddiefujiwara.com)",
     "license": "MIT",
