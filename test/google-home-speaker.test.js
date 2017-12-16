@@ -6,8 +6,6 @@ describe('GoogleHomeSpeaker test.', (suite) => {
     it('should have properties ', () => {
         const ghs = new GoogleHomeSpeaker();
         ghs.should.be.a('object');
-        ghs.should.have.property('client').with.equal(undefined);
-        ghs.should.have.property('reciever').with.equal(undefined);
         ghs.should.have.property('tts').with.equal(undefined);
         ghs.should.have.property('detector').with.equal(undefined);
     });
@@ -34,6 +32,10 @@ describe('GoogleHomeSpeaker test.', (suite) => {
         } catch (e) {
             e.should.be.a(Error);
         }
+    });
+    it('should run properly ', async () => {
+        const ghs = new GoogleHomeSpeaker();
+        ghs.should.have.property('run').with.be.a('function');
     });
 });
 

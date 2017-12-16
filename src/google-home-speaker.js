@@ -1,5 +1,5 @@
 import {Client} from 'castv2-client';
-import {DefaultMediaReceiver as reciever} from 'castv2-client';
+import {DefaultMediaReceiver} from 'castv2-client';
 import {detect} from 'cld';
 import tts from 'google-tts-api';
 /**
@@ -7,20 +7,18 @@ import tts from 'google-tts-api';
  */
 export default class GoogleHomeSpeaker {
     /**
-    * @constructor
-    */
+     * @constructor
+     */
     constructor() {
-        this.client = undefined;
-        this.reciever = undefined;
         this.detector = undefined;
         this.tts = undefined;
     }
     /**
-    * detect language
-    *
-    * @param {string} text
-    * @return {string} code
-    */
+     * detect language
+     *
+     * @param {string} text
+     * @return {string} code
+     */
     async detect(text) {
         return await new Promise((resolve) => {
             this.detector(text, (err, result) => {
@@ -35,46 +33,56 @@ export default class GoogleHomeSpeaker {
         });
     }
     /**
-    * convert text to mp3
-    * @param {string} text
-    * @return {string} url
-    */
+     * convert text to mp3
+     * @param {string} text
+     * @return {string} url
+     */
     async textToMp3(text) {
         return this.tts(text, await this.detect(text), 1);
     }
     /**
-    * run commands
-    * @return {void}
-    */
-    run() {
-        if ( typeof this.client === 'undefined') {
-            this.client = new Client();
-        }
-        if ( typeof this.reciever === 'undefined') {
-            this.reciever = reciever;
-        }
+     * run commands
+     * @param {string} host
+     * @param {string} text
+     * @return {void}
+     */
+    async run(host, text) {
         if ( typeof this.detector === 'undefined') {
             this.detector = detect;
         }
         if ( typeof this.tts === 'undefined') {
             this.tts = tts;
         }
-        const line = this.readLine();
-        if ( '' === line ) {
-            this.cl.end().then(() => {
-                fs.closeSync(this.fd);
-            }).catch(console.error.bind(console));
-            return;
-        }
-        const args = this.parseLine(line);
-        this.cl[args.shift()](...args)
-            .then((result) =>{
-                if (typeof result === 'string') {
-                    console.log(result);
-                }
-                this.run(); // loop
-            }).catch((e) => {
-                console.error(e);
+        let url = await this.textToMp3(text);
+        let client = new Client();
+        let reciever = DefaultMediaReceiver;
+        client.connect(host, () => {
+            console.log('host:%s', host);
+            console.log('text:%s', text);
+            client.launch(reciever, (err, player) => {
+                let media = {
+                    contentId: url,
+                    contentType: 'audio/mp3',
+                    streamType: 'BUFFERED',
+                };
+                player.on('status', (status) => {
+                    console.log('status:%s',
+                        status.playerState);
+                });
+
+                console.log('displayName:%s',player.session.displayName);
+                console.log('url:%s',media.contentId);
+                player.load(media, {autoplay: true}, (err, status) => {
+                    console.log('status:%s',
+                        status.playerState);
+                    client.close();
+                    console.log('spoke');
+                });
             });
+        });
+        client.on('error', (err) => {
+            console.log('Error:%s', err.message);
+            client.close();
+        });
     }
 }
