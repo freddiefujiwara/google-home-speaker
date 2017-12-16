@@ -20,9 +20,8 @@ npm i -g google-home-speaker
 
 ## Usage
 ```bash                                                                                     
-  Usage: google-home-speaker [options] [source.cmd]                                                                                    
-                                                                                                                               
-  Command line client for chromeless                                                                                             
+  Usage: google-home-speaker <host> <text>                                                                                    
+                                                                                                                         
                                                                                                                                
                                                                                                                                
   Options:                                                                                                                     
@@ -33,11 +32,7 @@ npm i -g google-home-speaker
 
 ## Example
 ```bash
-goto http://www.google.com
-type google-home-speaker 'input[name="q"]'
-click 'input[type="submit"]'
-wait #resultStats
-screenshot
+google-home-speaker 192.168.1.101 "Hello I'm Freddie"
 ```
 
 ## FAQ
