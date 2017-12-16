@@ -8,7 +8,7 @@
         "test:watch": "npm test -- --watch",
         "lint": "eslint -c google src test",
         "build": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
-        "codecov": "mkdir -p .nyc_output && nyc report --reporter=text-lcov > coverage.lcov && codecov -t 5e2264f4-4b93-44a5-82b1-2d72b73a1807",
+        "codecov": "mkdir -p .nyc_output && nyc report --reporter=text-lcov > coverage.lcov && codecov -t 24f63576-b4c3-43c8-9c62-83e431ebe61f",
         "coverage": "mkdir -p .nyc_output && nyc --reporter=lcov --reporter=text npm run test",
         "prepublishOnly": "npm i && npm run clean && npm run lint && npm run coverage && npm run codecov && npm run build",
         "requirements-check": "node check-version.js",
