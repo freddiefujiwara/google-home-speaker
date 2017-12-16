@@ -21,6 +21,6 @@ if((typeof fileValue) === 'string'){
     fd = process.stdin.fd;
 }
 
-let GoogleHomeNotifierCLI = require('./lib/google-home-notifier-cli');
-let ghncli = new GoogleHomeNotifierCLI(fd);
+let GoogleHomeSpeaker = require('./lib/google-home-speaker');
+let ghncli = new GoogleHomeSpeaker(fd);
 ghncli.run();

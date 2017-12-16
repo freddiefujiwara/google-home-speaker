@@ -1,5 +1,5 @@
 {
-    "name": "google-home-notifier-cli",
+    "name": "google-home-speaker",
     "version": "0.0.1",
     "description": "Command line client for chromeless",
     "scripts": {
@@ -15,9 +15,9 @@
         "postinstall": "npm run requirements-check"
     },
     "bin": {
-        "google-home-notifier-cli": "index.js"
+        "google-home-speaker": "index.js"
     },
-    "main": "lib/google-home-notifier-cli.js",
+    "main": "lib/google-home-speaker.js",
     "files": [
         "lib",
         "index.js",
@@ -25,7 +25,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/freddiefujiwara/google-home-notifier-cli.git"
+        "url": "git+https://github.com/freddiefujiwara/google-home-speaker.git"
     },
     "keywords": [
         "cli",
@@ -34,9 +34,9 @@
     "author": "Fumikazu Fujiwara <npm@ze.gs> (http://freddiefujiwara.com)",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/freddiefujiwara/google-home-notifier-cli/issues"
+        "url": "https://github.com/freddiefujiwara/google-home-speaker/issues"
     },
-    "homepage": "https://github.com/freddiefujiwara/google-home-notifier-cli#readme",
+    "homepage": "https://github.com/freddiefujiwara/google-home-speaker#readme",
     "devDependencies": {
         "babel-cli": "^6.24.1",
         "babel-core": "^6.25.0",
@@ -55,9 +55,11 @@
     },
     "dependencies": {
         "castv2-client": "^1.2.0",
+        "cld": "^2.4.7",
         "commander": "^2.11.0",
-        "google-tts": "^1.1.2",
+        "google-tts-api": "0.0.2",
         "multicast-dns": "^6.2.1",
+        "nginxparser": "^2.1.0",
         "semver": "^5.4.1"
     },
     "engines": {
