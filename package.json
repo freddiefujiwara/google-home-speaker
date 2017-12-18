@@ -59,7 +59,7 @@
         "castv2-client": "^1.2.0",
         "commander": "^2.11.0",
         "google-tts-api": "0.0.2",
-        "languagedetect": "^1.1.1",
+        "langdetect": "^0.2.1",
         "semver": "^5.4.1"
     },
     "engines": {

@@ -47,8 +47,8 @@ describe('GoogleHomeSpeaker test.', (suite) => {
  */
 const detectMockOK = {
 
-    detect: (text) => {
-        return [['english', 0.5969230769230769]];
+    detectOne: (text) => {
+        return 'en';
     },
 };
 
@@ -60,8 +60,8 @@ const detectMockOK = {
  */
 const detectMockNG = {
 
-    detect: (text) => {
-        return undefined;
+    detectOne: (text) => {
+        return null;
     },
 };
 

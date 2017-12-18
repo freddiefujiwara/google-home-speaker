@@ -1,6 +1,6 @@
 import {Client} from 'castv2-client';
 import {DefaultMediaReceiver} from 'castv2-client';
-import LanguageDetect from 'languagedetect';
+import LanguageDetect from 'langdetect';
 import tts from 'google-tts-api';
 /**
  ** main class of GoogleHomeSpeaker
@@ -21,13 +21,10 @@ export default class GoogleHomeSpeaker {
      */
     async detect(text) {
         return await new Promise((resolve) => {
-            let result = this.detector.detect(text, 1);
-            if (Object.prototype.toString.call( result ) === '[object Array]' &&
-                result.length === 1 &&
-                result[0].length === 2 &&
-                typeof result[0][0] === 'string' &&
-                result[0][0].length > 2) {
-                return resolve(result[0][0].substring(0, 2));
+            let result = this.detector.detectOne(text);
+            if (typeof result === 'string' &&
+                result.length === 2 ) {
+                return resolve(result);
             }
             return resolve('ja');
         });
@@ -48,7 +45,7 @@ export default class GoogleHomeSpeaker {
      */
     async run(host, text) {
         if ( typeof this.detector === 'undefined') {
-            this.detector = new LanguageDetect();
+            this.detector = LanguageDetect;
         }
         if ( typeof this.tts === 'undefined') {
             this.tts = tts;
