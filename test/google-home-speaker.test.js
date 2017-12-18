@@ -40,56 +40,56 @@ describe('GoogleHomeSpeaker test.', (suite) => {
 });
 
 /**
-* mock of function detect with OK
-*
-* @param {string} text
-* @param {function} callback
-*/
-async function detectMockOK(text, callback) {
-    callback(null, {reliable: true,
-        textBytes: 22,
-        languages: [
-        {name: 'ENGLISH',
-            code: 'en',
-            percent: 95,
-            score: 1121}], chunks: []});
-}
+ * mock of function detect with OK
+ *
+ * @param {string} text
+ * @param {function} callback
+ */
+const detectMockOK = {
+
+    detectOne: (text) => {
+        return 'en';
+    },
+};
 
 /**
-* mock of function detect with NG
-*
-* @param {string} text
-* @param {function} callback
-*/
-async function detectMockNG(text, callback) {
-    callback({message: 'Failed to identify language'}, undefined);
-}
+ * mock of function detect with NG
+ *
+ * @param {string} text
+ * @param {function} callback
+ */
+const detectMockNG = {
+
+    detectOne: (text) => {
+        return null;
+    },
+};
 
 /**
-* mock of function tts with OK
-*
-* @param {string} text
-* @param {string} code
-* @param {number} speed
-* @return {Promise}
-*/
+ * mock of function tts with OK
+ *
+ * @param {string} text
+ * @param {string} code
+ * @param {number} speed
+ * @return {Promise}
+ */
 async function ttsMockOK(text, code, speed) {
     return new Promise((resolve) => {
- resolve('https://translate.google.com/translate_tts?ie=UTF-8&q=Hello%20my%20name%20is%20Ken&tl=en&total=1&idx=0&textlen=20&tk=407544.24021&client=t&prev=input&ttsspeed=1');
-});
+        resolve('https://translate.google.com/translate_tts?ie=UTF-8&q=Hello%20my%20name%20is%20Ken&tl=en&total=1&idx=0&textlen=20&tk=407544.24021&client=t&prev=input&ttsspeed=1');
+    });
 }
 
 /**
-* mock of function tts with NG
-*
-* @param {string} text
-* @param {string} code
-* @param {number} speed
-* @return {Promise}
-*/
+ * mock of function tts with NG
+ *
+ * @param {string} text
+ * @param {string} code
+ * @param {number} speed
+ * @return {Promise}
+ */
 async function ttsMockNG(text, code, speed) {
     return new Promise((resolve) => {
         resolve();
         throw new TypeError('NG');
-});
+    });
 }
