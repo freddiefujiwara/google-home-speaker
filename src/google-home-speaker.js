@@ -1,5 +1,4 @@
-import {Client} from 'castv2-client';
-import {DefaultMediaReceiver} from 'castv2-client';
+import GoogleHomeAudioPlay from 'google-home-audioplay';
 import LanguageDetect from 'langdetect';
 import tts from 'google-tts-api';
 /**
@@ -21,6 +20,9 @@ export default class GoogleHomeSpeaker {
      */
     async detect(text) {
         return await new Promise((resolve) => {
+            if ( typeof this.detector === 'undefined') {
+                this.detector = LanguageDetect;
+            }
             let result = this.detector.detectOne(text);
             if (typeof result === 'string' &&
                 result.length === 2 ) {
@@ -35,6 +37,9 @@ export default class GoogleHomeSpeaker {
      * @return {string} url
      */
     async textToMp3(text) {
+        if ( typeof this.tts === 'undefined') {
+            this.tts = tts;
+        }
         return this.tts(text, await this.detect(text), 1);
     }
     /**
@@ -44,46 +49,7 @@ export default class GoogleHomeSpeaker {
      * @return {void}
      */
     async run(host, text) {
-        if ( typeof this.detector === 'undefined') {
-            this.detector = LanguageDetect;
-        }
-        if ( typeof this.tts === 'undefined') {
-            this.tts = tts;
-        }
-        let url = await this.textToMp3(text);
-        let client = new Client();
-        let reciever = DefaultMediaReceiver;
-        client.connect(host, () => {
-            console.log('host:%s', host);
-            console.log('text:%s', text);
-            client.launch(reciever, (err, player) => {
-                let media = {
-                    contentId: url,
-                    contentType: 'audio/mp3',
-                    streamType: 'BUFFERED',
-                };
-                player.on('status', (status) => {
-                    console.log('status:%s',
-                        status.playerState);
-                });
-
-                console.log('displayName:%s', player.session.displayName);
-                console.log('url:%s', media.contentId);
-                player.load(media, {autoplay: true}, (err, status) => {
-                    if (err === null) {
-                        console.log('status:%s',
-                            status.playerState);
-                        console.log('spoke');
-                    } else {
-                        console.error(err);
-                    }
-                    client.close();
-                });
-            });
-        });
-        client.on('error', (err) => {
-            console.log('Error:%s', err.message);
-            client.close();
-        });
+        let gha = new GoogleHomeAudioPlay(host, await this.textToMp3(text));
+        return gha.run();
     }
 }
