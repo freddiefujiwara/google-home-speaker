@@ -58,7 +58,7 @@
     "dependencies": {
         "commander": "^2.11.0",
         "google-home-audioplay": "*",
-        "google-tts-api": "0.0.2",
+        "google-tts-api": "0.0.4",
         "langdetect": "^0.2.1",
         "semver": "^5.4.1"
     },
