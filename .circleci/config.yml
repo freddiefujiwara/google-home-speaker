@@ -1,3 +1,10 @@
 machine:
   node:
     version: 7.10.1
+  environment:
+    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+
+test:
+  override:
+    - npm run build
+    - npm test
