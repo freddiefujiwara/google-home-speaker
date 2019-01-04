@@ -4,7 +4,6 @@ jobs:
     docker:
       - image: node:7.10.1
     steps:
-      - checkout
       - run:
           name: Install dependencies
           command: npm install
