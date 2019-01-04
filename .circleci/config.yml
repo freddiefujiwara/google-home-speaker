@@ -1,8 +1,16 @@
 version: 2
 jobs:
-  build: 
+  build:
     docker:
-      - image: circleci/node:7.10.1
+      - image: node:7.10.1
     steps:
-      - run: npm i
-      - run: npm test
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Build
+          command: npm run build
+      - run:
+          name: Test
+          command: npm test
