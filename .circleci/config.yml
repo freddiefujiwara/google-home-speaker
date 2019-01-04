@@ -3,3 +3,5 @@ jobs:
   build: 
     docker:
       - image: circleci/node:7.10.1
+    steps:
+      - run: npm test
