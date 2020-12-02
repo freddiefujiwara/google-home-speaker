@@ -6,7 +6,7 @@
 [![dependencies Status](https://david-dm.org/freddiefujiwara/google-home-speaker/status.svg)](https://david-dm.org/freddiefujiwara/google-home-speaker)
 
 # google-home-speaker
-Command line client for chromeless
+Command line client for google home 
 
 ## Requirements
 
