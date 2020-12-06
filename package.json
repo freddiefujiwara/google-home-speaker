@@ -1,6 +1,6 @@
 {
     "name": "google-home-speaker",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "description": "Command line client for chromeless",
     "scripts": {
         "clean": "rimraf lib",
@@ -58,7 +58,7 @@
     "dependencies": {
         "commander": "^2.11.0",
         "google-home-audioplay": "*",
-        "google-tts-api": "https://github.com/freddiefujiwara/google-tts#feature/fix-dec-1",
+        "google-tts-api": "*",
         "langdetect": "^0.2.1",
         "semver": "^5.4.1"
     },
