@@ -57,8 +57,8 @@
     },
     "dependencies": {
         "commander": "^6.2.0",
-        "google-home-audioplay": "*",
-        "google-tts-api": "*",
+        "google-home-audioplay": "^0.0.3",
+        "google-tts-api": "git+https://github.com/freddiefujiwara/google-tts#feature/fix-isse-35",
         "langdetect": "^0.2.1",
         "semver": "^7.3.4"
     },
