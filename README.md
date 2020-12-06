@@ -1,8 +1,5 @@
-[![Build Status](https://travis-ci.org/freddiefujiwara/google-home-speaker.svg?branch=master)](https://travis-ci.org/freddiefujiwara/google-home-speaker)
-[![Build status](https://ci.appveyor.com/api/projects/status/a14pxw5roh4jecv2?svg=true)](https://ci.appveyor.com/project/freddiefujiwara/google-home-speaker)
-[![CircleCI](https://circleci.com/gh/freddiefujiwara/google-home-speaker.svg?style=svg)](https://circleci.com/gh/freddiefujiwara/google-home-speaker)
+[![Node.js CI](https://github.com/freddiefujiwara/google-home-speaker/workflows/Node.js%20CI/badge.svg)](https://github.com/freddiefujiwara/google-home-speaker/actions)
 [![npm version](https://badge.fury.io/js/google-home-speaker.svg)](https://badge.fury.io/js/google-home-speaker)
-[![codecov](https://codecov.io/gh/freddiefujiwara/google-home-speaker/branch/master/graph/badge.svg)](https://codecov.io/gh/freddiefujiwara/google-home-speaker)
 [![dependencies Status](https://david-dm.org/freddiefujiwara/google-home-speaker/status.svg)](https://david-dm.org/freddiefujiwara/google-home-speaker)
 
 # google-home-speaker
