@@ -69,11 +69,10 @@ const detectMockNG = {
  * mock of function tts with OK
  *
  * @param {string} text
- * @param {string} code
- * @param {number} speed
+ * @param {object} option
  * @return {Promise}
  */
-async function ttsMockOK(text, code, speed) {
+async function ttsMockOK(text, option) {
     return new Promise((resolve) => {
         resolve('https://translate.google.com/translate_tts?ie=UTF-8&q=Hello%20my%20name%20is%20Ken&tl=en&total=1&idx=0&textlen=20&tk=407544.24021&client=t&prev=input&ttsspeed=1');
     });
@@ -83,11 +82,10 @@ async function ttsMockOK(text, code, speed) {
  * mock of function tts with NG
  *
  * @param {string} text
- * @param {string} code
- * @param {number} speed
+ * @param {object} option
  * @return {Promise}
  */
-async function ttsMockNG(text, code, speed) {
+async function ttsMockNG(text, option) {
     return new Promise((resolve) => {
         resolve();
         throw new TypeError('NG');

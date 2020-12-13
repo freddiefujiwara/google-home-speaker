@@ -1,6 +1,6 @@
 import GoogleHomeAudioPlay from 'google-home-audioplay';
 import LanguageDetect from 'langdetect';
-import tts from 'google-tts-api';
+import {getAudioUrl} from 'google-tts-api';
 /**
  ** main class of GoogleHomeSpeaker
  */
@@ -38,9 +38,13 @@ export default class GoogleHomeSpeaker {
      */
     async textToMp3(text) {
         if ( typeof this.tts === 'undefined') {
-            this.tts = tts;
+            this.tts = getAudioUrl;
         }
-        return this.tts(text, await this.detect(text), 1);
+        return this.tts(text,{
+          lang : await this.detect(text),
+          slow: false ,
+          host: 'https://translate.google.com'
+        });
     }
     /**
      * run commands
