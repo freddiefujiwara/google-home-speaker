@@ -18,6 +18,8 @@ describe('GoogleHomeSpeaker test.', (suite) => {
         ghs.detector = detectMockNG;
         code = await ghs.detect('hello');
         code.should.be.a('string').with.equal('ja');
+        code = await ghs.detect('１２３４５６７８９０');
+        code.should.be.a('string').with.equal('ja');
     });
     it('should convert text to mp3 properly ', async () => {
         const ghs = new GoogleHomeSpeaker();
