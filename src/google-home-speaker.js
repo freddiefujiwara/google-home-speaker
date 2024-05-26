@@ -23,11 +23,13 @@ export default class GoogleHomeSpeaker {
             if ( typeof this.detector === 'undefined') {
                 this.detector = LanguageDetect;
             }
-            let result = this.detector.detectOne(text);
-            if (typeof result === 'string' &&
-                result.length === 2 ) {
-                return resolve(result);
-            }
+            try {
+              let result = this.detector.detectOne(text);
+              if (typeof result === 'string' &&
+                 result.length === 2 ) {
+                 return resolve(result);
+              }
+            }catch(e){}
             return resolve('ja');
         });
     }
